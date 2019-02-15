@@ -1,7 +1,7 @@
 GIT BASIC WORKFLOW:
 1. Make Changes to File and save
 2. Add file to staging Index with the GIT ADD command (this get the file ready for syncing to remote repo)
-3. Commit the file to the staging index with the GIT COMMIT command (this will commit the changed file to the staging area)
+3. Commit the file to the staging index with the GIT COMMIT -M "message about changes made" command (this will commit the changed file to the staging area)
 4. Push the changed file to the remote repo with the GIT PUSH command (this will replicate the changed file from your local working directory to the remote GITHUB repo)
 
 git init              // Initialise local Git Repository
