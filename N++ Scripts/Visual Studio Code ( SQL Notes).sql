@@ -292,8 +292,8 @@ SELECT *
 FROM [AST Feb 2019 Complete$]
 
 
-SELECT TOP 10 * FROM
-[AST Feb 2019 Complete$]
+SELECT date, ast_total_worked, brian_tickets, mavuto_tickets, lindley_tickets 
+FROM [AST Feb 2019 Complete$]
 ORDER BY date desc;
 
 
@@ -310,3 +310,20 @@ WHERE ((student_no BETWEEN 3 AND 5
 OR student_no = 7) AND age < 20)
 OR (student_no >= 4 AND age > 20 )
 
+
+Select * FROM [AST Feb 2019 Complete$]
+
+
+
+SELECT * FROM
+[ast feb 2019 complete$]
+
+SELECT brian_tickets FROM
+[AST Feb 2019 complete$]
+
+SELECT TOP 20 date, lindley_tickets, brian_tickets, mavuto_tickets, ast_total_worked
+FROM [AST Feb 2019 Complete$]
+WHERE date != '2019-01-01'
+ORDER BY 1;
+
+TESTING GIT
