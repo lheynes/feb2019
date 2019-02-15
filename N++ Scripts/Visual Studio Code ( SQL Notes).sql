@@ -326,4 +326,3 @@ FROM [AST Feb 2019 Complete$]
 WHERE date != '2019-01-01'
 ORDER BY 1;
 
-TESTING GIT
