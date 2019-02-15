@@ -1,0 +1,44 @@
+###############################Create New Table, Columns and Populate Data rows into those Columns################################
+create table departments (
+    department varchar(100),
+    division varchar(100),
+    primary key (department)
+    );
+             
+insert into departments values ('Automotive','Auto & Hardware');
+insert into departments values ('Baby','Domestic');
+insert into departments values ('Beauty','Domestic');
+insert into departments values ('Clothing','Domestic');
+insert into departments values ('Computers','Electronic Equipment');
+insert into departments values ('Electronics','Electronic Equipment');
+insert into departments values ('Games','Domestic');
+insert into departments values ('Garden','Outdoors & Garden');
+insert into departments values ('Grocery','Domestic');
+insert into departments values ('Health','Domestic');
+insert into departments values ('Home','Domestic');
+insert into departments values ('Industrial','Auto & Hardware');
+insert into departments values ('Jewelery','Fashion');
+insert into departments values ('Kids','Domestic');
+insert into departments values ('Movies','Entertainment');
+insert into departments values ('Music','Entertainment');
+insert into departments values ('Outdoors','Outdoors & Garden');
+insert into departments values ('Shoes','Domestic');
+insert into departments values ('Sports','Games & Sports');
+insert into departments values ('Tools','Auto & Hardware');
+insert into departments values ('Toys','Games & Sports');
+
+
+create table regions (
+    region_id int,
+    regions varchar(20),
+    country varchar(20),
+    primary key (region_id)
+);
+
+insert into regions values (1, 'Northeast', 'USA');
+insert into regions values (2, 'Southeast', 'USA');
+insert into regions values (3, 'Northwest', 'USA');
+insert into regions values (4, 'Southwest', 'USA');
+insert into regions values (5, 'British Columbia', 'Canada');
+insert into regions values (6, 'Quebec', 'Canada');
+insert into regions values (7, 'Nova Scotia', 'Canada');
