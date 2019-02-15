@@ -15,4 +15,3 @@ git pull         // Pull latest from remote Repository
 git clone       // Clone Repository into a new Directory
 
 
-TESTING GIT
