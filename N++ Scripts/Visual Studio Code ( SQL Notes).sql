@@ -1,90 +1,153 @@
 /* 				# HOW TO CREATE A NEW TABLE WITH COLLUMNS AND ADD DATA INTO THOSE COLUMNS
  */
 
-create table departments (
-    department varchar(100),
-    division varchar(100),
-    primary key (department)
-  );
+create table departments
+(
+  department varchar(100),
+  division varchar(100),
+  primary key (department)
+);
 
 
-insert into departments values ('Clothing','Home');
-insert into departments values ('Grocery','Home');
-insert into departments values ('Decor','Home');
-insert into departments values ('Furniture','Home');
-insert into departments values ('Computers','Electronics');
-insert into departments values ('Device Repair','Electronics');
-insert into departments values ('Phones & Tablets','Electronics');
-insert into departments values ('Garden','Outdoors');
-insert into departments values ('Camping & Fishing','Outdoors');
-insert into departments values ('Sports','Outdoors');
-insert into departments values ('Children Clothing','Kids');
-insert into departments values ('Toys','Kids');
-insert into departments values ('Vitamins','Health');
-insert into departments values ('Pharmacy','Health');
-insert into departments values ('First Aid','Health');
-insert into departments values ('Automotive','Hardware');
-insert into departments values ('Tools','Hardware');
-insert into departments values ('Jewelry','Fashion');
-insert into departments values ('Beauty','Fashion');
-insert into departments values ('Cosmetics','Fashion');
-insert into departments values ('Books','Entertainment');
-insert into departments values ('Games','Entertainment');
-insert into departments values ('Music','Entertainment');
-insert into departments values ('Movies','Entertainment');
-	
-	
+insert into departments
+values
+  ('Clothing', 'Home');
+insert into departments
+values
+  ('Grocery', 'Home');
+insert into departments
+values
+  ('Decor', 'Home');
+insert into departments
+values
+  ('Furniture', 'Home');
+insert into departments
+values
+  ('Computers', 'Electronics');
+insert into departments
+values
+  ('Device Repair', 'Electronics');
+insert into departments
+values
+  ('Phones & Tablets', 'Electronics');
+insert into departments
+values
+  ('Garden', 'Outdoors');
+insert into departments
+values
+  ('Camping & Fishing', 'Outdoors');
+insert into departments
+values
+  ('Sports', 'Outdoors');
+insert into departments
+values
+  ('Children Clothing', 'Kids');
+insert into departments
+values
+  ('Toys', 'Kids');
+insert into departments
+values
+  ('Vitamins', 'Health');
+insert into departments
+values
+  ('Pharmacy', 'Health');
+insert into departments
+values
+  ('First Aid', 'Health');
+insert into departments
+values
+  ('Automotive', 'Hardware');
+insert into departments
+values
+  ('Tools', 'Hardware');
+insert into departments
+values
+  ('Jewelry', 'Fashion');
+insert into departments
+values
+  ('Beauty', 'Fashion');
+insert into departments
+values
+  ('Cosmetics', 'Fashion');
+insert into departments
+values
+  ('Books', 'Entertainment');
+insert into departments
+values
+  ('Games', 'Entertainment');
+insert into departments
+values
+  ('Music', 'Entertainment');
+insert into departments
+values
+  ('Movies', 'Entertainment');
+
+
 /* 				# HOW TO SELECT AND DISPLAY ALL INFORMATION FROM A TABLE
  */
-Select * FROM Shoes
+Select *
+FROM Shoes
 
 
 
 /* 				# HOW TO SELECT ALL DATA AND ORDER BY ALPHABETICAL and NON ALPHABETICAL ORDER
  */
-Select * From [ICFXHO_IA].[dbo].[AndroidDevice]
-Select * From [ICFXHO_IA].[dbo].[AndroidDevice] Order By PositionLastUpdateTime
-Select * From [ICFXHO_IA].[dbo].[AndroidDevice] Order By PositionLastUpdateTime Desc
+Select *
+From [ICFXHO_IA].[dbo].[AndroidDevice]
+Select *
+From [ICFXHO_IA].[dbo].[AndroidDevice]
+Order By PositionLastUpdateTime
+Select *
+From [ICFXHO_IA].[dbo].[AndroidDevice]
+Order By PositionLastUpdateTime Desc
 
 
 /* 				# HOW TO SELECT ALL DATA within a Specified Collumn THAT is EQUAL to and NOT EQUAL to a Certain VALUE
  */
-Select * From [ICFXHO_IA].[dbo].[AndroidDevice]
-Select * From [ICFXHO_IA].[dbo].[AndroidDevice] Where MukuruId = 0
-Select * From [ICFXHO_IA].[dbo].[AndroidDevice] Where MukuruId <> 0
+Select *
+From [ICFXHO_IA].[dbo].[AndroidDevice]
+Select *
+From [ICFXHO_IA].[dbo].[AndroidDevice]
+Where MukuruId = 0
+Select *
+From [ICFXHO_IA].[dbo].[AndroidDevice]
+Where MukuruId <> 0
 
 
 /* 				# HOW TO INSERT A NEW RECORD INTO AN EXISTING TABLE
  */
-SELECT TOP (1000) [AccountOwner]
-      ,[AccountType]
-      ,[AccountCcy]
-      ,[ShowName]
-      ,[CustomerType]
-      ,[Balance]
-      ,[LastUpdateTime]
-      ,[PastelCode]
-  FROM [ICFXHO_IA].[dbo].[Account]
+SELECT TOP (1000)
+  [AccountOwner]
+      , [AccountType]
+      , [AccountCcy]
+      , [ShowName]
+      , [CustomerType]
+      , [Balance]
+      , [LastUpdateTime]
+      , [PastelCode]
+FROM [ICFXHO_IA].[dbo].[Account]
 
-Insert Into Account (
-AccountOwner,
-AccountType,
-AccountCcy,
-ShowName,
-CustomerType,
-Balance,
-LastUpdateTime,
-PastelCode 
-)
-Values (
-'8706126305089',
-'Laanie',
-'ZAR',
-'Heynes Lindley',
-'Global Citizen',
-'100000000',
-'2018-10-08 06:13:02.770',
-'0952'
+Insert Into Account
+  (
+  AccountOwner,
+  AccountType,
+  AccountCcy,
+  ShowName,
+  CustomerType,
+  Balance,
+  LastUpdateTime,
+  PastelCode
+  )
+Values
+  (
+    '8706126305089',
+    'Laanie',
+    'ZAR',
+    'Heynes Lindley',
+    'Global Citizen',
+    '100000000',
+    '2018-10-08 06:13:02.770',
+    '0952'
 )
 
 /* 				# HOW TO UPDATE ALL ROWS IN A SPECIFIC COLLUMN
@@ -93,93 +156,105 @@ UPDATE	Account Set	Balance = '100000000'
 
 
 /* 				# HOW TO UPDATE A SPECIFIC COLLUMN IN A TABLE
- */		
- 
+ */
+
 Update CardPool set SequenceNumber = '50505050' where TransitOwnerId = 'SMH1616304565766'
 
 
-				/* # HOW TO DELETE DATA FROM A SPECIFIC COLLUMN */
-				
+/* # HOW TO DELETE DATA FROM A SPECIFIC COLLUMN */
+
 Delete From Shoes Where Color = 'Pink'
 
 
-				/* # HOW TO CREATE & DELETE A DB & Table */
+/* # HOW TO CREATE & DELETE A DB & Table */
 
 Create DATABASE "TestDB"
 Drop DATABASE "TestDB"
 Create TABLE 'TestTable'
 Drop Table 'TestTable'
 
-				/* #HOW TO DELETE ALL DATA WITHIN A TABLE */
-				
+/* #HOW TO DELETE ALL DATA WITHIN A TABLE */
+
 Truncate Table 'TestTable'
 
 /* 				#HOW TO ADD A COLLUMN TO A TABLE
  */
 ALTER TABLE Shoes ADD Store VARCHAR
 
-				/* #HOW TO DELETE A COLUMN FROM A TABL */
+/* #HOW TO DELETE A COLUMN FROM A TABL */
 
 ALTER TABLE Shoes Drop Column Purchase
 
 
-				/* #HOW TO SELECT SPECIFIC COLUMNS FROM A TABLE */
+/* #HOW TO SELECT SPECIFIC COLUMNS FROM A TABLE */
 
-Select Brand, Price from Shoes
+Select Brand, Price
+from Shoes
 
-				/* HOW TO SELECT DISTINCT VALUES WITHIN A COLUMN AND EXCLUDE DUPLICATE VALUES */
+/* HOW TO SELECT DISTINCT VALUES WITHIN A COLUMN AND EXCLUDE DUPLICATE VALUES */
 
-Select Distinct Brand, Price from Shoes
+Select Distinct Brand, Price
+from Shoes
 
 
-                #Check DB Space
+                #Check
+DB Space
 
 sp_spaceused
 
                             #SELECT GREATER THAN, LESS THAN, = TO STATEMENTS
 
-SELECT date, lindley_tickets 
+SELECT date, lindley_tickets
 FROM [AST Feb 2019 Complete$]
 WHERE lindley_tickets > '10'
 SELECT TOP 4
+  
 ORDER BY desc
 
-SELECT date, lindley_tickets FROM [AST Feb 2019 Complete$]
+SELECT date, lindley_tickets
+FROM [AST Feb 2019 Complete$]
 WHERE lindley_tickets < '10'
 
-SELECT date, lindley_tickets 
+SELECT date, lindley_tickets
 FROM [AST Feb 2019 Complete$]
 WHERE lindley_tickets >= '10'
 
 
-                #HOW to Select multiple data-sets and order it by a specific column
+#HOW to
+Select multiple data
+-sets and order it by a specific column
                 
                 In the example below these selected data-sets will be displayed and order by the date column
-                
-SELECT date, ast_total_tickets, brian_tickets, mavuto_tickets, lindley_tickets 
+
+SELECT date, ast_total_tickets, brian_tickets, mavuto_tickets, lindley_tickets
 FROM [AST Feb 2019 Complete$]
 WHERE ast_total_tickets >= '10'
 ORDER BY date
 
 
-				#HOW TO USE MULTIPLE CONDITION STATEMENTS - Using Operators: WHERE, AND, OR, NOT
+				#HOW TO USE MULTIPLE
+CONDITION STATEMENTS - Using
+Operators:
+WHERE, AND, OR, NOT
                 
                 #Select data from a table where two conditions must be met i.e. the Department MUST = CLOTHING and the SALARY must > 90 000
 SELECT *
 FROM employees
-WHERE department = 'Clothing' 
-AND salary > 90000
+WHERE department = 'Clothing'
+  AND salary > 90000
 
-                #Select data from a table where one OR the otehr condition can be met i.e. department MUST = Clothing OR salary can > 90 000 (this is an either or statement)
-                
-                
+#Select data from a table where one OR the otehr condition can be met i.e. department MUST = Clothing OR salary can > 90 000
+(this is an either or statement)
+
+
 SELECT *
 FROM employees
-WHERE department = 'Clothing' 
-OR salary > 90000
+WHERE department = 'Clothing'
+  OR salary > 90000
 
 
-                #Select data from a table where multiple conditions MUST BE MET i.e. Where ALL the conditions are compulsory, the parantheses () below ensures that the statement within them get's evaluated as ONE STATEMENT. This means that salary MUST < 40000 and department must = Clothing and must also = Pharmacy
+#Select data from a table where multiple conditions MUST BE MET i.e. Where ALL the conditions are compulsory, the parantheses
+() below ensures that the statement within them get's evaluated as ONE STATEMENT. This means that salary MUST < 40000 and department must = Clothing and must also = Pharmacy
                 
 SELECT *
 FROM employees
@@ -325,4 +400,12 @@ SELECT TOP 20 date, lindley_tickets, brian_tickets, mavuto_tickets, ast_total_wo
 FROM [AST Feb 2019 Complete$]
 WHERE date != '2019-01-01'
 ORDER BY 1;
+
+                  #Use the UPPER
+                  and LOWER function to format the case of all data rows in a specific column
+
+**(FOR MY SQL)
+
+SELECT UPPER(first_name)
+FROM employees;
 
