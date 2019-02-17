@@ -18,3 +18,4 @@ git reset HEAD <file name> OR git rm --cached <file name> // removes a file from
 .gitignore file                 // file names which are listed in here will be ignore when running git add command
 git branch <branch name>        // creates a new branch
 git checkout <branch name>      // switches to specified branch
+git push --set-upstream origin lindleytestbranch // to link the new branch to existing remote repo
