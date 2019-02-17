@@ -13,5 +13,5 @@ git commit -a     	// To  add & commit changes to files in one go
 git push          // Push to remote Repository
 git pull         // Pull latest from remote Repository
 git clone       // Clone Repository into a new Directory
-
-
+git checkout -- <file name> // discards changes made to a file, to be used before file is added to staging
+git reset HEAD <file name> OR git rm --cached <file name> // removes a file from the staging area before it has been committed to the Index
