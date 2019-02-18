@@ -403,6 +403,7 @@ ORDER BY 1;
 
                   /* Use the UPPER and LOWER functions to format the case of all data rows in a specific column */
                   # Use the LENGTH function to count and display the specified amount of characters in a specified column
+                  # Use LEN for MS SQL
 
 **(FOR MY SQL)
 
@@ -432,3 +433,4 @@ ORDER BY salary desc
 
 
                     #Using Boolean expressions to execute multiple arguments
+
