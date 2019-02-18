@@ -401,11 +401,34 @@ FROM [AST Feb 2019 Complete$]
 WHERE date != '2019-01-01'
 ORDER BY 1;
 
-                  #Use the UPPER
-                  and LOWER function to format the case of all data rows in a specific column
+                  /* Use the UPPER and LOWER functions to format the case of all data rows in a specific column */
+                  # Use the LENGTH function to count and display the specified amount of characters in a specified column
 
 **(FOR MY SQL)
 
-SELECT UPPER(first_name)
+SELECT UPPER(first_name), LOWER(department)
 FROM employees;
 
+SELECT LENGTH(first_name), LOWER(department)
+FROM employees
+
+                    #Using PIPES to concatenate the data-rows 
+                    from two different columns into ONE single column and giving that new column a name
+
+
+SELECT first_name ||' '|| last_name as full_name
+FROM employees
+
+
+                    #Using Boolean expressions () to return true or false results.
+                    #The query below will: 1. Return first_name and last_name as one column and rename that column as full_name
+                                           2. The boolean expression will seek and either true or false states for those
+                                             persons earning more than 140000. The boolean expression will be displayed with column
+                                             name "salary"
+
+SELECT first_name ||' '|| last_name as full_name, (salary > 140000) as salary
+FROM employees
+ORDER BY salary desc
+
+
+                    #Using Boolean expressions to execute multiple arguments
