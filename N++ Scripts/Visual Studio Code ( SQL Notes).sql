@@ -421,6 +421,12 @@ SELECT first_name ||' '|| last_name as full_name
 FROM employees
 
 
+SELECT department, 
+REPLACE(department, 'Clothing', 'Attire') as modified_data,
+department || ' department' as "Complete Department Name"
+FROM departments
+
+
                     #Using Boolean expressions () to return true or false results.
                     #The query below will: 1. Return first_name and last_name as one column and rename that column as full_name
                                            2. The boolean expression will seek and either true or false states for those
@@ -433,4 +439,78 @@ ORDER BY salary desc
 
 
                     #Using Boolean expressions to execute multiple arguments
+
+
+
+                    #Using the SUBSTRING function to extract certain bits of data from a specific column
+
+                    1. Exmaple 1 below will extract the word "this" from the phrase "this is test data" and rename it as a column titled "testing_SUBSTR".
+                         the function "FROM 1 FOR 4" directs the query to extract all data from character position 1 untill character position 4.
+                         If you leave out the FOR function then the SUBSTRING query will extract all available data that comes after character position 1. 
+                         This is just a way of doing more clinical and specific data queries.
+
+SELECT SUBSTRING('This is test data' FROM 1 FOR 4) as testing_SUBSTR
+
+
+
+
+                  #Using the REPLACE function to replace certain pieces of data in a specified column.
+                  1. The example query below will scan the "department" column and replace every occurence of the word "Clothing" 
+                  with the word "Attire" in that column. The data will then be displayed as a new new column titled "modified_data"
+
+
+SELECT department, REPLACE(department, 'Clothing', 'Attire') as modified_data
+FROM employees
+
+
+SELECT division, REPLACE(division, 'Domestic', 'Home_Stuff') AS Modified_data
+FROM departments
+ORDER BY division desc;
+
+
+SELECT division, REPLACE(division, 'Domestic', 'Home_Stuff') AS Modified_data
+FROM departments
+ORDER BY division desc;
+
+                  #Using the SELECT TOP 1000 query to quickly return all of the colum and row data for a specified table
+                  from a specified DB.
+
+                  The example below will return the TOP 1000 columns and rows for columns
+                  "department" and "division" from the table "departments" that is located on
+                  DB "Lindley DB"
+
+
+SELECT TOP (1000) 
+[department],[division]
+FROM [Lindley DB].[dbo].[departments]
+
+
+                  #Using the POSITION and SUBSTRING functions combined to extract data from a column
+                  The below example query will extract all the domains  from the email column after the @ sign.
+                  The query will also ignore all null values or empty columns and order the data in alphabetical order.
+
+SELECT SUBSTRING (email, POSITION('@' IN email))
+FROM employees
+WHERE email != 'null'
+ORDER by 1
+
+
+                  #The exmaple query below displays the ORIGINAL column data as it is in the DB and 
+                  the newly formatted data in a new column titled "Formatted Data". Important note: 
+                  this technque is usefull for formatting the data, it does not CHANGE teh actual data.
+
+SELECT email, SUBSTRING (email, POSITION('@' IN email)) AS "Formatted Data"
+FROM employees
+WHERE email != 'null'
+ORDER by 1
+
+
+                  #Using the COALESCE function to rename NULL values in columns.
+                  The query below will scan the email column and display all
+                  NULL values with the text 'NONE' in a seperate column titled "Coalesced Email"
+
+SELECT COALESCE(email, 'NONE') as "Coalesced Email"
+FROM employees
+
+
 

@@ -26,13 +26,8 @@ P    3408750
 
 
 SELECT SUBSTR(gatewayId,1,1) as `Clickatell or Panacea`, SUM(ceil(length(content) / 153)) as `SMS count`
-
 FROM PROVATO_TRANSACTION_LOG
-
 WHERE timestamp between '2018-11-01' AND '2018-12-01'
-
 AND `gatewayId` != 'PanaceaInbound'
-
 AND `destination` IS NOT NULL
-
 GROUP BY SUBSTR(gatewayId,1,1); 
