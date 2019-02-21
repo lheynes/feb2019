@@ -514,3 +514,10 @@ FROM employees
 
 
 
+                #Using the MIN, MAX, AVG, COUNT functions.
+
+SELECT ROUND(AVG(salary))
+FROM employees
+
+
+
