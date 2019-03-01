@@ -9,84 +9,57 @@ create table departments
 );
 
 
-insert into departments
-values
-  ('Clothing', 'Home');
-insert into departments
-values
-  ('Grocery', 'Home');
-insert into departments
-values
-  ('Decor', 'Home');
-insert into departments
-values
-  ('Furniture', 'Home');
-insert into departments
-values
-  ('Computers', 'Electronics');
-insert into departments
-values
-  ('Device Repair', 'Electronics');
-insert into departments
-values
-  ('Phones & Tablets', 'Electronics');
-insert into departments
-values
-  ('Garden', 'Outdoors');
-insert into departments
-values
-  ('Camping & Fishing', 'Outdoors');
-insert into departments
-values
-  ('Sports', 'Outdoors');
-insert into departments
-values
-  ('Children Clothing', 'Kids');
-insert into departments
-values
-  ('Toys', 'Kids');
-insert into departments
-values
-  ('Vitamins', 'Health');
-insert into departments
-values
-  ('Pharmacy', 'Health');
-insert into departments
-values
-  ('First Aid', 'Health');
-insert into departments
-values
-  ('Automotive', 'Hardware');
-insert into departments
-values
-  ('Tools', 'Hardware');
-insert into departments
-values
-  ('Jewelry', 'Fashion');
-insert into departments
-values
-  ('Beauty', 'Fashion');
-insert into departments
-values
-  ('Cosmetics', 'Fashion');
-insert into departments
-values
-  ('Books', 'Entertainment');
-insert into departments
-values
-  ('Games', 'Entertainment');
-insert into departments
-values
-  ('Music', 'Entertainment');
-insert into departments
-values
-  ('Movies', 'Entertainment');
+insert into departments values ('Clothing', 'Home');
+insert into departments values ('Grocery', 'Home');
+insert into departments values ('Decor', 'Home');
+insert into departments values ('Furniture', 'Home');
+insert into departments values ('Computers', 'Electronics');
+insert into departments values ('Device Repair', 'Electronics');
+insert into departments values ('Phones & Tablets', 'Electronics');
+insert into departments values ('Garden', 'Outdoors');
+insert into departments values ('Camping & Fishing', 'Outdoors');
+insert into departments values ('Sports', 'Outdoors');
+insert into departments values ('Children Clothing', 'Kids');
+insert into departments values ('Toys', 'Kids');
+insert into departments values ('Vitamins', 'Health');
+insert into departments values ('Pharmacy', 'Health');
+insert into departments values ('First Aid', 'Health');
+insert into departments values ('Automotive', 'Hardware');
+insert into departments values ('Tools', 'Hardware');
+insert into departments values ('Jewelry', 'Fashion');
+insert into departments values ('Beauty', 'Fashion');
+insert into departments values ('Cosmetics', 'Fashion');
+insert into departments values ('Books', 'Entertainment');
+insert into departments values ('Games', 'Entertainment');
+insert into departments values ('Music', 'Entertainment');
+insert into departments values ('Movies', 'Entertainment');
 
 
 /* 				# HOW TO SELECT AND DISPLAY ALL INFORMATION FROM A TABLE
  */
 Select *
 FROM Shoes
+
+
+/* 				# HOW TO DELETE (DROP) and ADD columns from an exisiting table 
+            using the ALTER TABLE function.
+
+ALTER TABLE heynes_family DROP country;
+
+ALTER TABLE heynes_family ADD ccy VARCHAR(20)
+
+
+        #HOW to ALTER the data_type of a COLUMN
+        The below query will alter the data_type of the acc_balance column and change the type
+        to NUMERIC. This query can be used to change data_types to VARCHAR, INT, DATE etc.
+
+ALTER TABLE heynes_family ALTER COLUMN acc_balance TYPE NUMERIC;
+
+
+      #HOW to RENAME a table name
+
+ALTER TABLE heynes_family RENAME TO personal_details
+
 
 
 
@@ -433,9 +406,7 @@ FROM departments
                                              persons earning more than 140000. The boolean expression will be displayed with column
                                              name "salary"
 
-SELECT first_name ||' '|| last_name as full_name, (salary > 140000) as salary
-FROM employees
-ORDER BY salary desc
+ 
 
 
                     #Using Boolean expressions to execute multiple arguments
@@ -520,4 +491,131 @@ SELECT ROUND(AVG(salary))
 FROM employees
 
 
+                    #(USING SUBSTRING function) Write a query that returns all of the records and columns from the professors table 
+                    but shortens the department names to only the first three characters in upper case. 
+
+SELECT last_name, 
+UPPER(SUBSTRING(department, 1, 3)) as department, salary, hire_date
+FROM professors
+
+
+                    #(USING MAX, MIN functions) Write a query that returns the highest and lowest salary 
+                    from the professors table excluding the professor named 'Wilson'.
+
+SELECT MAX(salary) as higest_salary,
+MIN(salary) as lowest_salary
+FROM professors
+WHERE last_name != 'Wilson'
+
+
+
+                #Using the GROUP BY function to count and group data
+                The below query is counting all of the records in the
+                "make" column of the cars table and GROUP teh data sets
+                by make
+
+SELECT COUNT(*), make
+FROM cars
+GROUP BY make
+
+              #Using the GROUP BY and SUM function together to group values per department. **P.S. the GROUP BY function always comes after the SELECT, FROM, WHERE fucntions**
+              The below query will  return the department name and the SUM TOTAL of salary expense for each department.
+              department and salary are individual columns in the employees table.
+
+SELECT department, SUM(salary)
+FROM employees
+GROUP BY department
+
+
+                #Using the GROUP BY and SUM functions together to filter and return specific data sets.
+                For example: the query below will only return TOTAL SUMMED salaries of employees who work in the specified regions.
+                And the results will be grouped by department
+
+SELECT department, SUM(salary)
+FROM employees
+WHERE region_id IN (4,5,6,7)
+GROUP BY department
+
+
+              #Using the COUNT and GROUP BY functions together.
+              The below query will do a head count of all the employees and group the number
+              of employees per department.
+
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department
+
+
+                #Using the COUNT, AVG, MIN, MAX, ROUND, WHERE, GROUP BY AND ORDER BY
+                functions to write more comprehensive queries.
+
+SELECT COUNT(*), department
+FROM employees
+GROUP BY department
+
+SELECT department, COUNT(*), AVG(salary), MIN(salary), MAX(salary)
+FROM employees
+GROUP BY department;
+
+
+SELECT department, COUNT(*) AS total_number_employees, 
+ROUND(AVG(salary)) AS avg_sal, MIN(salary) AS min_sal, MAX(salary) AS max_sal
+FROM employees
+GROUP BY department
+ORDER BY total_number_employees desc;
+
+
+SELECT department, COUNT(*) AS total_number_employees, 
+ROUND(AVG(salary)) AS avg_sal, MIN(salary) AS min_sal, MAX(salary) AS max_sal
+FROM employees
+WHERE salary > 70000
+GROUP BY department
+ORDER BY total_number_employees desc;
+
+
+                #How to export query results to a file instead of displaying in the GRID.
+                This is for MSSQL server and is a useful technique to use when executing
+                queries that will resturn large data chunks.
+                CTRL + SHIFT + F -> this will save the results to a file instead of displaying in the grid.
+
+
+ --HOW TO CREATE A STORED PROCEDURE in MSSMS
+
+  CREATE PROC spAllResolvedByDate
+  AS
+  SELECT 
+  date,
+  engineering_total_worked,
+  icfx_dev_support_worked,
+  ast_total_worked, 
+  brian_tickets, 
+  mavuto_tickets, 
+  lindley_tickets
+  FROM [AST Feb 2019 Complete$]
+  ORDER BY date;
+ 
+
+  
+  --HOW TO CREATE A STORED PROCEDURE in MSSMS
+
+  CREATE PROC spAllResolvedBySUM
+  AS
+  SELECT SUM(engineering_total_worked) AS "MTI_Resolved", 
+  SUM(icfx_dev_support_worked) AS "ICFX_Dev_Resolved", 
+  SUM(ast_total_worked) AS "AST_Resolved",
+  SUM(mavuto_tickets) AS "Mavuto_Resolved", 
+  SUM(lindley_tickets) AS "Lindley_Resolved"
+  FROM [AST Feb 2019 Complete$];
+
+
+  --How to locate a Stored Procs in MSSMS
+
+  1. Select DB
+  2. Expand "Programmability" folder
+  3. Expand "Stoed Procedures" folder
+
+
+  --HOW TO RUN a Stored Proc in MSSMS
+
+  EXECUTE spAllResolvedByDate
 
