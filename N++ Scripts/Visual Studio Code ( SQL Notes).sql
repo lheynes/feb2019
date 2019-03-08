@@ -536,6 +536,16 @@ FROM employees
 WHERE region_id IN (4,5,6,7)
 GROUP BY department
 
+                #Using the GROUP BY function to group more than one column.
+                The below query will COUNT how many employees there are within each department
+                and it will COUNT how many of them are male or female and it will GROUP the results
+                by department and gender
+
+SELECT department, gender, count(*)
+FROM employees
+GROUP BY department, gender
+ORDER BY department DESC
+
 
               #Using the COUNT and GROUP BY functions together.
               The below query will do a head count of all the employees and group the number
@@ -619,3 +629,28 @@ ORDER BY total_number_employees desc;
 
   EXECUTE spAllResolvedByDate
 
+
+                #How to copy data from one table into another
+                The below query will select all the data from [AST March 2019 Complete$] table
+                and ADD the data records into the [AST Feb 2019 Complete$] table.
+                Once completed, the [AST Feb 2019 Complete$] table should contain it's original records
+                allongside the newly Android [AST March 2019 Complete$] records.
+
+INSERT  INTO [AST DWH].[dbo].[AST Feb 2019 Complete$]
+SELECT *  FROM [AST DWH].[dbo].[AST March 2019 Complete$]
+
+
+
+
+                #Using the HAVING command to filter aggregated data, i.e. normally the WHERE command will be used for non-aggregated data.
+                The below example will return all departments that have LESS than 35 employees.
+
+SELECT department, count(*)
+FROM employees
+GROUP BY department
+HAVING count(*) > 35
+ORDER BY department DESC
+
+                  #How to retrieve the data types of columns in a table in MS SQL
+
+exec sp_help [AST_OPS_Report_2019]
