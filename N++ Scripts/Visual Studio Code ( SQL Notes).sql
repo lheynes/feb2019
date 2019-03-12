@@ -651,6 +651,37 @@ GROUP BY department
 HAVING count(*) > 35
 ORDER BY department DESC
 
+
+                #Using the COUNT, GROUP BY and HAVING functions in one statement.
+                The below query will COUNT all the first_names and GROUP those records where the first name is the same.
+                The portion which contains the HAVING function of the query will exclude all the first names that only has ONE
+                occurence (one record) in the employees table.
+
+SELECT first_name, COUNT(*)
+FROM employees
+GROUP BY first_name
+HAVING COUNT(*) > 1;
+
+
+                #Using the COUNT and GROUP BY functions in one statement.
+                The below query will count and return all records that has an association and group the results by department.
+                For example, if 10 employees work for the same department, the query will not return 10 results for the same department
+                but rather, it will return the department name once and give a count of how many records (employees) work in for
+                or is associated to that specific department.
+
+SELECT department,COUNT(*)
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 2
+
                   #How to retrieve the data types of columns in a table in MS SQL
 
 exec sp_help [AST_OPS_Report_2019]
+
+                  #How to list databases, tables and columns
+
+in MySQL
+SHOW databases -> list all DBs on current server
+SHOW tables on <db_name> -> list all tables on DB
+SHOW columns on <table_name> -> list all columns and their attributes (datatypes, length etc.)
+
